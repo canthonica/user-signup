@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Signup</title>
+        <style type="text/css">
+            .error { color: red; }
+        
+        </style>
+    </head>
+    <body>
+        <h1>
+            <a href="/">User Signup</a>
+        </h1>
+    <form method='post'>
+
+        <label for="username">Username</label>
+        <input type="text" name="username" value="">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" 
+
+        
+
+        <label for="verify">Verify Password</label>
+        <input type="password" name="verify"
+
+        <label for="email">Email address (optional)</label>
+        <input type="text" value="">
+
+
+    </form>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+
+</html>
+
