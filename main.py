@@ -9,13 +9,8 @@ app.config['DEBUG'] = True
 
 @app.route("/")
 def index():
-    #username = request.args.get('username')
-    #error = request.args.get("error")
-    #pass_err = request.args.get("pass_err")
-   # verify_err = request.args.get("verify_err")
-    #email_err = request.args.get("email_err")
-    #password = request.args.get('password')
-    return render_template('add-user.html')
+   
+    return render_template('add-user.html', title="User Signup")
 
 # Defines if string has characters
 def has_char(chex):
@@ -31,14 +26,6 @@ def space(verify):
     else:
         return False
 
-#def email(validate):
-
-
-
-
-
-
-
 
 @app.route("/user", methods=['POST', 'GET'])
 def signup():
@@ -50,8 +37,6 @@ def signup():
     pass_err = ""
     verify_err = ""
     email_err = ""
-    
-    #user_sign = " "
        
     if not has_char(username):
         error = "Invalid Username"
@@ -59,7 +44,7 @@ def signup():
     else:
         if len(username) < 4 or len(username)  > 20:
             error = "Invalid Username"
-
+            username = ""
     if not has_char(password):
         pass_err = "Invalid Password. Please enter a password between 3 and 20 characters"
           
@@ -74,7 +59,8 @@ def signup():
     else:
         if password != verify:
             verify_err ="Please enter password"
-            
+            verify = ""
+
     if has_char(email):
         if email != "":
             if "@" not in email:
@@ -88,21 +74,12 @@ def signup():
                     email_err = "Invalid Email"
 
     if not error and not pass_err and not verify_err:
-        #error = ""
-        #pass_err = ""
-        #verify_err = ""
-       # email_err = ""
         
         return render_template('welcome.html', username=username)
     else:
-        return render_template('add-user.html', username=username, email=email, error=error, pass_err=pass_err, verify_err=verify_err, email_err=email_err)
+        return render_template('add-user.html', username=username, error=error, pass_err=pass_err, verify_err=verify_err, email=email,email_err=email_err)
         
-'''   
-@app.route('/welcome')
-def welcome():
-    return render_template('welcome.html')
-'''
-               
+      
 
 
 

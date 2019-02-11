@@ -12,36 +12,36 @@
                 <td><label for="username">Username</label></td>
                 <td>
                     <input name="username" type="text" value="{{ username }}" />
-                    {% if error %}
+                    
                     <span class="error">{{ error }}</span>
-                    {% endif %}
+                    
                 </td>
             </tr>
             <tr>
                 <td><label for="password">Password</label></td>
                 <td>
                     <input name="password" type="password" value="{{ password }}" />
-                    {% if error %}
+
                     <span class="error">{{ pass_err }}</span>
-                    {% endif %}
+                    
                 </td>
             </tr>
             <tr>
                 <td><label for="verify">Verify Password</label></td>
                 <td>
                     <input name="verify" type="password" value="{{ verify }}" />
-                    {% if error %}
+                    
                     <span class="error">{{ verify_err }}</span>
-                    {% endif %}
+                   
                 </td>
             </tr>
             <tr>
                 <td><label for="email">Email (optional)</label></td>
                 <td>
                     <input name="email" type="text" value="{{ email }}" />
-                    {% if error %}
+                    
                     <span class="error">{{ email_err }}</span>
-                    {% endif %}
+                    
                 </td>
             </tr>
         </table>
